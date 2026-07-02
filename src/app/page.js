@@ -40,6 +40,14 @@ export default function Home() {
         <div className="space-x-4 flex items-center">
           {loading ? null : user ? (
   <>
+    {user.email === "jpso4183@naver.com" && (
+      <Link
+        href="/admin"
+        className="text-gray-700 hover:text-blue-600 text-sm font-medium"
+      >
+        관리자
+      </Link>
+    )}
     <Link
       href="/guide-register"
       className="text-gray-700 hover:text-blue-600 text-sm"

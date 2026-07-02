@@ -11,6 +11,7 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(true);
   const [bookings, setBookings] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [guides, setGuides] = useState([]);
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
@@ -33,6 +34,12 @@ export default function AdminPage() {
       .select("*")
       .order("id", { ascending: false })
       .then(({ data }) => setReviews(data || []));
+
+    supabase
+      .from("guides")
+      .select("*")
+      .order("id", { ascending: false })
+      .then(({ data }) => setGuides(data || []));
   }, [user]);
 
   if (loading) {
@@ -57,6 +64,29 @@ export default function AdminPage() {
 
       <div className="max-w-4xl mx-auto px-6 py-10">
         <h1 className="text-2xl font-bold text-gray-900 mb-8">관리자 페이지</h1>
+
+        <section className="mb-12">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+            가이드 신청 목록 ({guides.length})
+          </h2>
+          <div className="space-y-3">
+            {guides.length === 0 && (
+              <p className="text-sm text-gray-500">아직 가이드 신청이 없습니다.</p>
+            )}
+            {guides.map((g) => (
+              <div key={g.id} className="border border-gray-200 rounded-lg p-4">
+                <div className="flex justify-between text-sm text-gray-500 mb-1">
+                  <span className="font-medium text-gray-900">{g.name}</span>
+                  <span>{g.user_email}</span>
+                </div>
+                <p className="text-sm text-gray-600 mb-1">
+                  {g.country} · {g.city}
+                </p>
+                <p className="text-gray-800 text-sm">{g.bio}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         <section className="mb-12">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">
