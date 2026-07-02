@@ -39,16 +39,22 @@ export default function Home() {
 
         <div className="space-x-4 flex items-center">
           {loading ? null : user ? (
-            <>
-              <span className="text-gray-700 text-sm">{user.email}</span>
-              <button
-                onClick={handleLogout}
-                className="text-gray-700 hover:text-blue-600"
-              >
-                로그아웃
-              </button>
-            </>
-          ) : (
+  <>
+    <Link
+      href="/guide-register"
+      className="text-gray-700 hover:text-blue-600 text-sm"
+    >
+      가이드 등록
+    </Link>
+    <span className="text-gray-700 text-sm">{user.email}</span>
+    <button
+      onClick={handleLogout}
+      className="text-gray-700 hover:text-blue-600"
+    >
+      로그아웃
+    </button>
+  </>
+) : (
             <>
               <Link href="/login" className="text-gray-700 hover:text-blue-600">
                 로그인
