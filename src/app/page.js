@@ -35,54 +35,54 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       {/* 상단 네비게이션 */}
       <header className="border-b border-gray-200 px-6 py-4 flex justify-between items-center">
-        <span className="text-xl font-bold text-blue-600">VR 트래블</span>
+  <span className="text-xl font-bold text-blue-600">VR 트래블</span>
 
-        <div className="space-x-4 flex items-center">
-          {loading ? null : user ? (
-  <>
-    {user.email === "jpso4183@naver.com" && (
-      <Link
-        href="/admin"
-        className="text-gray-700 hover:text-blue-600 text-sm font-medium"
-      >
-        관리자
-      </Link>
+  <div className="space-x-4 flex items-center">
+    {loading ? null : user ? (
+      <>
+        {user.email === "jpso4183@naver.com" && (
+          <Link
+            href="/admin"
+            className="text-gray-700 hover:text-blue-600 text-sm font-medium"
+          >
+            관리자
+          </Link>
+        )}
+        <Link
+          href="/my-bookings"
+          className="text-gray-700 hover:text-blue-600 text-sm"
+        >
+          내 예약
+        </Link>
+        <Link
+          href="/guide-register"
+          className="text-gray-700 hover:text-blue-600 text-sm"
+        >
+          가이드 등록
+        </Link>
+        <span className="text-gray-700 text-sm">{user.email}</span>
+        <button
+          onClick={handleLogout}
+          className="text-gray-700 hover:text-blue-600"
+        >
+          로그아웃
+        </button>
+      </>
+    ) : (
+      <>
+        <Link href="/login" className="text-gray-700 hover:text-blue-600">
+          로그인
+        </Link>
+        <Link
+          href="/signup"
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+        >
+          회원가입
+        </Link>
+      </>
     )}
-    <Link
-  href="/my-bookings"
-  className="text-gray-700 hover:text-blue-600 text-sm"
->
-  내 예약
-</Link>
-    <Link
-      href="/guide-register"
-      className="text-gray-700 hover:text-blue-600 text-sm"
-    >
-      가이드 등록
-    </Link>
-    <span className="text-gray-700 text-sm">{user.email}</span>
-    <button
-      onClick={handleLogout}
-      className="text-gray-700 hover:text-blue-600"
-    >
-      로그아웃
-    </button>
-  </>
-) : (
-            <>
-              <Link href="/login" className="text-gray-700 hover:text-blue-600">
-                로그인
-              </Link>
-              <Link
-                href="/signup"
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
-              >
-                회원가입
-              </Link>
-            </>
-          )}
-        </div>
-      </header>
+  </div>
+</header>
 
       {/* 히어로 섹션 */}
       <section className="text-center py-20 px-6 bg-gradient-to-b from-blue-50 to-white">

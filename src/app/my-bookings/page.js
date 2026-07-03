@@ -70,7 +70,7 @@ export default function MyBookingsPage() {
               <p className="text-sm text-gray-600 mb-3">{b.message}</p>
 
               {b.meeting_link ? (
-                
+                <a
                   href={b.meeting_link}
                   target="_blank"
                   rel="noopener noreferrer"
