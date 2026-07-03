@@ -49,6 +49,12 @@ export default function Home() {
       </Link>
     )}
     <Link
+  href="/my-bookings"
+  className="text-gray-700 hover:text-blue-600 text-sm"
+>
+  내 예약
+</Link>
+    <Link
       href="/guide-register"
       className="text-gray-700 hover:text-blue-600 text-sm"
     >

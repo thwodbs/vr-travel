@@ -1,7 +1,7 @@
 // 국가 목록
 export const countries = [
   { id: "japan", name: "일본" },
-  { id: "thailand", name: "태국" },
+  
 ];
 
 // 도시(투어) 목록
@@ -42,22 +42,5 @@ export const tours = [
       "삿포로의 겨울 풍경과 오도리 공원을 타로와 함께 VR로 체험해보세요.",
     price: "무료 체험",
   },
-  {
-    id: "bangkok",
-    countryId: "thailand",
-    title: "방콕 투어",
-    guide: "프림",
-    description:
-      "방콕의 왓 아룬 사원과 활기찬 수상시장을 프림과 함께 둘러봅니다.",
-    price: "무료 체험",
-  },
-  {
-    id: "chiangmai",
-    countryId: "thailand",
-    title: "치앙마이 투어",
-    guide: "눗",
-    description:
-      "치앙마이의 고즈넉한 사원들과 산속 마을을 눗과 함께 체험해보세요.",
-    price: "무료 체험",
-  },
+  
 ];

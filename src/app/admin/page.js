@@ -12,6 +12,8 @@ export default function AdminPage() {
   const [bookings, setBookings] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [guides, setGuides] = useState([]);
+  const [linkInputs, setLinkInputs] = useState({});
+  const [savingId, setSavingId] = useState(null);
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
@@ -22,12 +24,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     if (!user || !ADMIN_EMAILS.includes(user.email)) return;
-
-    supabase
-      .from("bookings")
-      .select("*")
-      .order("id", { ascending: false })
-      .then(({ data }) => setBookings(data || []));
+    fetchBookings();
 
     supabase
       .from("reviews")
@@ -41,6 +38,30 @@ export default function AdminPage() {
       .order("id", { ascending: false })
       .then(({ data }) => setGuides(data || []));
   }, [user]);
+
+  const fetchBookings = async () => {
+    const { data } = await supabase
+      .from("bookings")
+      .select("*")
+      .order("id", { ascending: false });
+    setBookings(data || []);
+  };
+
+  const handleSaveLink = async (bookingId) => {
+    const link = linkInputs[bookingId];
+    if (!link) return;
+
+    setSavingId(bookingId);
+    const { error } = await supabase
+      .from("bookings")
+      .update({ meeting_link: link })
+      .eq("id", bookingId);
+    setSavingId(null);
+
+    if (!error) {
+      fetchBookings();
+    }
+  };
 
   if (loading) {
     return null;
@@ -102,7 +123,32 @@ export default function AdminPage() {
                   <span>{b.user_email}</span>
                   <span>{b.tour_title}</span>
                 </div>
-                <p className="text-gray-800 text-sm">{b.message}</p>
+                <p className="text-gray-800 text-sm mb-3">{b.message}</p>
+
+                {b.meeting_link ? (
+                  <p className="text-sm text-green-700 break-all">
+                    ✅ 링크 등록됨: {b.meeting_link}
+                  </p>
+                ) : (
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      placeholder="Zoom/Meet 링크 붙여넣기"
+                      value={linkInputs[b.id] || ""}
+                      onChange={(e) =>
+                        setLinkInputs({ ...linkInputs, [b.id]: e.target.value })
+                      }
+                      className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                    <button
+                      onClick={() => handleSaveLink(b.id)}
+                      disabled={savingId === b.id}
+                      className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 disabled:opacity-50"
+                    >
+                      {savingId === b.id ? "저장 중..." : "링크 저장"}
+                    </button>
+                  </div>
+                )}
               </div>
             ))}
           </div>
