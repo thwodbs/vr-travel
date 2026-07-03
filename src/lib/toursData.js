@@ -13,7 +13,7 @@ export const tours = [
     guide: "유키",
     description:
       "오사카의 활기찬 도톤보리 거리와 오사카성을 현지 가이드 유키와 함께 VR로 둘러봅니다.",
-    price: "무료 체험",
+    price: 14900,
   },
   {
     id: "tokyo",
@@ -22,7 +22,7 @@ export const tours = [
     guide: "켄지",
     description:
       "도쿄 시부야 스크램블 교차로부터 아사쿠사 절까지, 현지 가이드 켄지와 함께 도쿄를 체험합니다.",
-    price: "무료 체험",
+    price: 14900,
   },
   {
     id: "fukuoka",
@@ -31,7 +31,7 @@ export const tours = [
     guide: "미나",
     description:
       "후쿠오카의 야타이(포장마차) 골목과 하카타 지역을 미나와 함께 둘러봅니다.",
-    price: "무료 체험",
+    price: 14900,
   },
   {
     id: "sapporo",
@@ -40,7 +40,7 @@ export const tours = [
     guide: "타로",
     description:
       "삿포로의 겨울 풍경과 오도리 공원을 타로와 함께 VR로 체험해보세요.",
-    price: "무료 체험",
+    price: 14900,
   },
   
 ];

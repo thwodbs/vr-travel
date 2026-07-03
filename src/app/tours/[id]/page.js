@@ -130,7 +130,14 @@ export default function TourDetailPage({ params }) {
         <p className="text-gray-700 leading-relaxed mb-8">
           {tour.description}
         </p>
-
+<div className="mb-8">
+  <Link
+    href={`/checkout/${tour.id}`}
+    className="block text-center bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700"
+  >
+    {tour.price.toLocaleString()}원 결제하고 예약하기
+  </Link>
+</div>
         <div className="border-t border-gray-200 pt-6 mb-10">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">
             예약 / 문의하기
