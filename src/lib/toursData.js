@@ -1,6 +1,7 @@
 // 국가 목록
 export const countries = [
-  { id: "japan", name: "일본" },
+  // 사진: Wikimedia Commons "12-Chureito-pagoda-and-Mount-Fuji-Japan (29677439878).jpg" (CC0 퍼블릭 도메인)
+  { id: "japan", name: "일본", image: "/images/japan.jpg" },
   
 ];
 

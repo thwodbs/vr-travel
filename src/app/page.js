@@ -107,7 +107,15 @@ export default function Home() {
       href={`/countries/${country.id}`}
       className="border border-gray-200 rounded-xl p-4 hover:shadow-lg transition block"
     >
-      <div className="bg-gray-200 h-40 rounded-lg mb-4"></div>
+      {country.image ? (
+        <img
+          src={country.image}
+          alt={`${country.name} 풍경`}
+          className="w-full h-40 object-cover rounded-lg mb-4"
+        />
+      ) : (
+        <div className="bg-gray-200 h-40 rounded-lg mb-4"></div>
+      )}
       <h3 className="font-semibold text-gray-900">{country.name}</h3>
     </Link>
   ))}
