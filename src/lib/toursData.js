@@ -9,6 +9,8 @@ export const countries = [
 export const tours = [
   {
     id: "osaka",
+    // 사진: Wikimedia Commons "Osaka Dotonbori yoru.jpg" (CC0)
+    image: "/images/osaka.jpg",
     countryId: "japan",
     title: "오사카 투어",
     guide: "유키",
@@ -18,6 +20,8 @@ export const tours = [
   },
   {
     id: "tokyo",
+    // 사진: Wikimedia Commons "Shibuya crossing in October 2021.jpg" (CC0)
+    image: "/images/tokyo.jpg",
     countryId: "japan",
     title: "도쿄 투어",
     guide: "켄지",
@@ -27,6 +31,8 @@ export const tours = [
   },
   {
     id: "fukuoka",
+    // 사진: Wikimedia Commons "Clear as sky,sharp as light (4727941548).jpg" (CC0, 가로로 잘라서 사용)
+    image: "/images/fukuoka.jpg",
     countryId: "japan",
     title: "후쿠오카 투어",
     guide: "미나",
@@ -36,6 +42,8 @@ export const tours = [
   },
   {
     id: "sapporo",
+    // 사진: Wikimedia Commons "Sapporo - Sapporo7175.jpg" (CC0)
+    image: "/images/sapporo.jpg",
     countryId: "japan",
     title: "삿포로 투어",
     guide: "타로",

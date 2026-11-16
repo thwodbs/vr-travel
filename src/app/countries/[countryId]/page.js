@@ -33,7 +33,15 @@ export default async function CountryPage({ params }) {
               href={`/tours/${tour.id}`}
               className="border border-gray-200 rounded-xl p-4 hover:shadow-lg transition block"
             >
-              <div className="bg-gray-200 h-40 rounded-lg mb-4"></div>
+              {tour.image ? (
+                <img
+                  src={tour.image}
+                  alt={`${tour.title} 풍경`}
+                  className="w-full h-40 object-cover rounded-lg mb-4"
+                />
+              ) : (
+                <div className="bg-gray-200 h-40 rounded-lg mb-4"></div>
+              )}
               <h3 className="font-semibold text-gray-900">{tour.title}</h3>
               <p className="text-sm text-gray-500 mt-1">
                 현지 가이드: {tour.guide}
